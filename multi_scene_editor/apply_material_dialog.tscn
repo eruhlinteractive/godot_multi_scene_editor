@@ -1,0 +1,213 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/multi_scene_editor/scripts/apply_material_control.gd" type="Script" id=1]
+
+[node name="ApplyMaterial" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -403.0
+rect_min_size = Vector2( 0, 197 )
+rect_pivot_offset = Vector2( -374, -139 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+error_label_path = NodePath("MarginContainer/Wrapper/Body/CenterContainer/Error")
+apply_to_path = NodePath("MarginContainer/Wrapper/Body/Parameters/HBoxContainer/ApplyToOptions")
+material_label_path = NodePath("MarginContainer/Wrapper/Body/HSplitContainer/Control/MaterialToAdd")
+application_options_path = NodePath("MarginContainer/Wrapper/Body/Parameters/ApplicationOptions")
+regex_match_input_path = NodePath("MarginContainer/Wrapper/Body/Parameters/ApplicationOptions/RegexNameMatch")
+surface_indexes_edit_path = NodePath("MarginContainer/Wrapper/Body/Parameters/HBoxContainer2/MaterialIndexes")
+
+[node name="MenuBar" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -572.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MenuBar"]
+margin_top = 3.0
+margin_right = 92.0
+margin_bottom = 17.0
+text = "Apply Material"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Padding" type="Control" parent="MenuBar"]
+margin_left = 96.0
+margin_right = 888.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="RemoveOperation" type="Button" parent="MenuBar"]
+margin_left = 892.0
+margin_right = 1024.0
+margin_bottom = 20.0
+text = "Remove Operation"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 36.0
+margin_right = -10.0
+margin_bottom = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wrapper" type="Control" parent="MarginContainer"]
+margin_right = 1004.0
+margin_bottom = 151.0
+
+[node name="Body" type="VBoxContainer" parent="MarginContainer/Wrapper"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/Wrapper/Body"]
+margin_right = 1004.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 25 )
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="MarginContainer/Wrapper/Body/HSplitContainer"]
+margin_right = 830.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+
+[node name="MaterialToAdd" type="LineEdit" parent="MarginContainer/Wrapper/Body/HSplitContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+editable = false
+placeholder_text = "No Material Selected"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Add" type="Button" parent="MarginContainer/Wrapper/Body/HSplitContainer"]
+margin_left = 842.0
+margin_right = 1004.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+text = "Select Material"
+
+[node name="Parameters" type="VBoxContainer" parent="MarginContainer/Wrapper/Body"]
+margin_top = 29.0
+margin_right = 1004.0
+margin_bottom = 91.0
+size_flags_vertical = 3
+custom_constants/separation = 18
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Wrapper/Body/Parameters"]
+margin_right = 1004.0
+margin_bottom = 20.0
+
+[node name="Label" type="Label" parent="MarginContainer/Wrapper/Body/Parameters/HBoxContainer"]
+margin_top = 3.0
+margin_right = 48.0
+margin_bottom = 17.0
+text = "Add To:"
+
+[node name="Control" type="Control" parent="MarginContainer/Wrapper/Body/Parameters/HBoxContainer"]
+margin_left = 52.0
+margin_right = 72.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="ApplyToOptions" type="OptionButton" parent="MarginContainer/Wrapper/Body/Parameters/HBoxContainer"]
+margin_left = 76.0
+margin_right = 275.722
+margin_bottom = 20.0
+rect_min_size = Vector2( 199.722, 0 )
+text = "All Meshes"
+items = [ "All Meshes", null, false, 0, null, "Meshes Named:", null, false, 1, null ]
+selected = 0
+
+[node name="ApplicationOptions" type="HBoxContainer" parent="MarginContainer/Wrapper/Body/Parameters"]
+visible = false
+margin_top = 38.0
+margin_right = 1004.0
+margin_bottom = 62.0
+
+[node name="Label" type="Label" parent="MarginContainer/Wrapper/Body/Parameters/ApplicationOptions"]
+margin_top = 5.0
+margin_right = 126.0
+margin_bottom = 19.0
+text = "RegEx Match Name:"
+
+[node name="Control" type="Control" parent="MarginContainer/Wrapper/Body/Parameters/ApplicationOptions"]
+margin_left = 130.0
+margin_right = 150.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="RegexNameMatch" type="LineEdit" parent="MarginContainer/Wrapper/Body/Parameters/ApplicationOptions"]
+margin_left = 154.0
+margin_right = 1004.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Wrapper/Body/Parameters"]
+margin_top = 38.0
+margin_right = 1004.0
+margin_bottom = 62.0
+
+[node name="Label" type="Label" parent="MarginContainer/Wrapper/Body/Parameters/HBoxContainer2"]
+margin_top = 5.0
+margin_right = 237.0
+margin_bottom = 19.0
+text = "Surface Indexes (Comma Separated): "
+
+[node name="Control" type="Control" parent="MarginContainer/Wrapper/Body/Parameters/HBoxContainer2"]
+margin_left = 241.0
+margin_right = 261.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="MaterialIndexes" type="LineEdit" parent="MarginContainer/Wrapper/Body/Parameters/HBoxContainer2"]
+margin_left = 265.0
+margin_right = 1004.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+text = "0"
+
+[node name="Control" type="Control" parent="MarginContainer/Wrapper/Body"]
+margin_top = 95.0
+margin_right = 1004.0
+margin_bottom = 125.0
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/Wrapper/Body"]
+margin_top = 129.0
+margin_right = 1004.0
+margin_bottom = 143.0
+
+[node name="Error" type="Label" parent="MarginContainer/Wrapper/Body/CenterContainer"]
+margin_left = 408.0
+margin_right = 595.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "ERROR: No Material Selected!"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/Wrapper/Body"]
+margin_top = 147.0
+margin_right = 1004.0
+margin_bottom = 151.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="MenuBar/RemoveOperation" to="." method="remove_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Wrapper/Body/HSplitContainer/Add" to="." method="select_material_button_pressed"]

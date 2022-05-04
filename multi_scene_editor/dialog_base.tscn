@@ -1,0 +1,127 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/multi_scene_editor/scripts/apply_material_control.gd" type="Script" id=1]
+
+[node name="ApplyMaterial" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -274.0
+rect_pivot_offset = Vector2( -374, -139 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+error_label_path = NodePath("MarginContainer/Wrapper/Body/CenterContainer/Error")
+material_label_path = NodePath("MarginContainer/Wrapper/Body/HSplitContainer/Control/MaterialToApplyPath")
+
+[node name="MenuBar" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -572.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MenuBar"]
+margin_top = 3.0
+margin_right = 92.0
+margin_bottom = 17.0
+text = "Apply Material"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Padding" type="Control" parent="MenuBar"]
+margin_left = 96.0
+margin_right = 888.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="RemoveOperation" type="Button" parent="MenuBar"]
+margin_left = 892.0
+margin_right = 1024.0
+margin_bottom = 20.0
+text = "Remove Operation"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 36.0
+margin_right = -10.0
+margin_bottom = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wrapper" type="Control" parent="MarginContainer"]
+margin_right = 1004.0
+margin_bottom = 280.0
+
+[node name="Body" type="VBoxContainer" parent="MarginContainer/Wrapper"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/Wrapper/Body"]
+margin_right = 1004.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 25 )
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="MarginContainer/Wrapper/Body/HSplitContainer"]
+margin_right = 830.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+
+[node name="MaterialToApplyPath" type="LineEdit" parent="MarginContainer/Wrapper/Body/HSplitContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+editable = false
+placeholder_text = "No Material Selected"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Add" type="Button" parent="MarginContainer/Wrapper/Body/HSplitContainer"]
+margin_left = 842.0
+margin_right = 1004.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+text = "Select Material"
+
+[node name="Parameters" type="VBoxContainer" parent="MarginContainer/Wrapper/Body"]
+margin_top = 29.0
+margin_right = 1004.0
+margin_bottom = 143.0
+size_flags_vertical = 3
+custom_constants/separation = 18
+
+[node name="Control" type="Control" parent="MarginContainer/Wrapper/Body"]
+margin_top = 147.0
+margin_right = 1004.0
+margin_bottom = 262.0
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/Wrapper/Body"]
+margin_top = 266.0
+margin_right = 1004.0
+margin_bottom = 280.0
+
+[node name="Error" type="Label" parent="MarginContainer/Wrapper/Body/CenterContainer"]
+margin_left = 415.0
+margin_right = 588.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "ERROR: No scene selected!"
+
+[connection signal="pressed" from="MenuBar/RemoveOperation" to="." method="RemoveButtonPressed"]
+[connection signal="pressed" from="MarginContainer/Wrapper/Body/HSplitContainer/Add" to="." method="SelectMaterialButtonPressed"]

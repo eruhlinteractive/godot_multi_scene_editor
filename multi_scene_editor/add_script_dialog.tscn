@@ -1,0 +1,226 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/multi_scene_editor/scripts/add_script_dialog_control.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.219608, 0.219608, 0.219608, 1 )
+
+[node name="AddScriptDialog" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -350.0
+rect_min_size = Vector2( 0, 250 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+error_label_path = NodePath("MarginContainer/Wrapper/Body/CenterContainer/Error")
+script_to_add_label_path = NodePath("MarginContainer/Wrapper/Body/HSplitContainer/Control/scriptpath")
+set_added_script_button_path = NodePath("MarginContainer/Wrapper/Body/HSplitContainer/Add")
+data_input_fields = {
+"non_root_add_name": NodePath("MarginContainer/Wrapper/Body/Parameters/NonRootAdd/VBoxContainer/HSplitContainer/NonRootNameAdd")
+}
+data_toggles = {
+"add_to_root": NodePath("MarginContainer/Wrapper/Body/Parameters/AddToRoot")
+}
+non_root_add_error_path = NodePath("MarginContainer/Wrapper/Body/Parameters/NonRootAdd/VBoxContainer/HBoxContainer/OptionButton")
+remove_operation_path = NodePath("MenuBar/RemoveOperation")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuBar" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -572.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MenuBar"]
+margin_top = 3.0
+margin_right = 65.0
+margin_bottom = 17.0
+text = "Add Script"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Padding" type="Control" parent="MenuBar"]
+margin_left = 69.0
+margin_right = 888.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="RemoveOperation" type="Button" parent="MenuBar"]
+margin_left = 892.0
+margin_right = 1024.0
+margin_bottom = 20.0
+text = "Remove Operation"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 36.0
+margin_right = -10.0
+margin_bottom = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wrapper" type="Control" parent="MarginContainer"]
+margin_right = 1004.0
+margin_bottom = 204.0
+
+[node name="Body" type="VBoxContainer" parent="MarginContainer/Wrapper"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/Wrapper/Body"]
+margin_right = 1004.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 25 )
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="MarginContainer/Wrapper/Body/HSplitContainer"]
+margin_right = 830.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+
+[node name="scriptpath" type="LineEdit" parent="MarginContainer/Wrapper/Body/HSplitContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+editable = false
+placeholder_text = "No Script Selected"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Add" type="Button" parent="MarginContainer/Wrapper/Body/HSplitContainer"]
+margin_left = 842.0
+margin_right = 1004.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+text = "Select Scene"
+
+[node name="Parameters" type="VBoxContainer" parent="MarginContainer/Wrapper/Body"]
+margin_top = 29.0
+margin_right = 1004.0
+margin_bottom = 105.0
+size_flags_vertical = 3
+custom_constants/separation = 18
+
+[node name="AddToRoot" type="CheckBox" parent="MarginContainer/Wrapper/Body/Parameters"]
+margin_right = 1004.0
+margin_bottom = 24.0
+pressed = true
+text = "Add to Root"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NonRootAdd" type="HBoxContainer" parent="MarginContainer/Wrapper/Body/Parameters"]
+visible = false
+margin_top = 42.0
+margin_right = 1004.0
+margin_bottom = 106.0
+
+[node name="Padding" type="Control" parent="MarginContainer/Wrapper/Body/Parameters/NonRootAdd"]
+margin_right = 40.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 40, 0 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Wrapper/Body/Parameters/NonRootAdd"]
+margin_left = 44.0
+margin_right = 1004.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/Wrapper/Body/Parameters/NonRootAdd/VBoxContainer"]
+margin_right = 960.0
+margin_bottom = 24.0
+
+[node name="Label" type="Label" parent="MarginContainer/Wrapper/Body/Parameters/NonRootAdd/VBoxContainer/HSplitContainer"]
+margin_top = 5.0
+margin_right = 134.0
+margin_bottom = 19.0
+text = "Add to Node Named:"
+
+[node name="NonRootNameAdd" type="LineEdit" parent="MarginContainer/Wrapper/Body/Parameters/NonRootAdd/VBoxContainer/HSplitContainer"]
+margin_left = 146.0
+margin_right = 960.0
+margin_bottom = 24.0
+hint_tooltip = "NOTE:
+- String is case-sensitive
+- '*' matches zero or more characters
+- '?' matches any single character besides period ('.')"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Wrapper/Body/Parameters/NonRootAdd/VBoxContainer"]
+margin_top = 44.0
+margin_right = 960.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NodeNotFound" type="Label" parent="MarginContainer/Wrapper/Body/Parameters/NonRootAdd/VBoxContainer/HBoxContainer"]
+margin_top = 3.0
+margin_right = 143.0
+margin_bottom = 17.0
+rect_min_size = Vector2( 143, 0 )
+text = "If Node is Not Found:"
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/Wrapper/Body/Parameters/NonRootAdd/VBoxContainer/HBoxContainer"]
+margin_left = 147.0
+margin_right = 960.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Do Nothing"
+items = [ "Do Nothing", null, false, 0, null, "Add to Scene Root Instead", null, false, 1, null ]
+selected = 0
+
+[node name="Control" type="Control" parent="MarginContainer/Wrapper/Body"]
+margin_top = 109.0
+margin_right = 1004.0
+margin_bottom = 186.0
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/Wrapper/Body"]
+margin_top = 190.0
+margin_right = 1004.0
+margin_bottom = 204.0
+
+[node name="Error" type="Label" parent="MarginContainer/Wrapper/Body/CenterContainer"]
+margin_left = 404.0
+margin_right = 600.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "ERROR: No script path defined!"
+
+[node name="HSeparator" type="HSeparator" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -9.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}

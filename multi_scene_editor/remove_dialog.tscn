@@ -1,0 +1,131 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/multi_scene_editor/scripts/remove_dialog_control.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.219608, 0.219608, 0.219608, 1 )
+
+[node name="RemoveDialog" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -400.0
+rect_min_size = Vector2( 0, 200 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+error_label_path = NodePath("MarginContainer/Wrapper/Body/CenterContainer/Error")
+node_name_to_remove_label_path = NodePath("MarginContainer/Wrapper/Body/HSplitContainer/Control/SceneToAddPath")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuBar" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -572.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MenuBar"]
+margin_top = 3.0
+margin_right = 90.0
+margin_bottom = 17.0
+text = "Remove Node"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Padding" type="Control" parent="MenuBar"]
+margin_left = 94.0
+margin_right = 888.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="RemoveOperation" type="Button" parent="MenuBar"]
+margin_left = 892.0
+margin_right = 1024.0
+margin_bottom = 20.0
+text = "Remove Operation"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 36.0
+margin_right = -10.0
+margin_bottom = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wrapper" type="Control" parent="MarginContainer"]
+margin_right = 1004.0
+margin_bottom = 154.0
+
+[node name="Body" type="VBoxContainer" parent="MarginContainer/Wrapper"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/Wrapper/Body"]
+margin_right = 1004.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 25 )
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="MarginContainer/Wrapper/Body/HSplitContainer"]
+margin_right = 1004.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+
+[node name="SceneToAddPath" type="LineEdit" parent="MarginContainer/Wrapper/Body/HSplitContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+placeholder_text = "Node Name to Remove"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="MarginContainer/Wrapper/Body"]
+margin_top = 29.0
+margin_right = 1004.0
+margin_bottom = 136.0
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/Wrapper/Body"]
+margin_top = 140.0
+margin_right = 1004.0
+margin_bottom = 154.0
+
+[node name="Error" type="Label" parent="MarginContainer/Wrapper/Body/CenterContainer"]
+margin_left = 398.0
+margin_right = 605.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "ERROR: Node Name Not Defined"
+
+[node name="HSeparator" type="HSeparator" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -9.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="MenuBar/RemoveOperation" to="." method="remove_button_pressed"]

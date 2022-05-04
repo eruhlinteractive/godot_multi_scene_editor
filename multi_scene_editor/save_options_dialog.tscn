@@ -1,0 +1,253 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/multi_scene_editor/scripts/save_options_control.gd" type="Script" id=1]
+
+[node name="SaveOptionsDialog" type="WindowDialog"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -378.0
+margin_top = -223.0
+margin_right = 378.0
+margin_bottom = 223.0
+window_title = "Save Options"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+search_text_path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SearchOptions/SearchLine")
+replace_text_path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ReplaceOptions/ReplaceLine")
+use_regex_path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SearchOptions/UseRegex/CheckBox")
+prefix_text_path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/PrefixOptions/PrefixLine")
+suffix_text_path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SuffixOptions/SuffixLine")
+folder_path_text_path = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/FolderLine")
+accept_button_path = NodePath("MarginContainer/VBoxContainer/Buttons/Accept")
+cancel_button_path = NodePath("MarginContainer/VBoxContainer/Buttons/Cancel")
+reset_options_button_path = NodePath("MarginContainer/VBoxContainer/ResetOptions")
+select_folder_button_path = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/SelectFolder")
+clear_folder_button_path = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/Clear")
+error_text_path = NodePath("MarginContainer/VBoxContainer/ErrorLabel")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 736.0
+margin_bottom = 426.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_right = 736.0
+margin_bottom = 14.0
+text = "Scene Name"
+align = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 736.0
+margin_bottom = 22.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 26.0
+margin_right = 736.0
+margin_bottom = 167.0
+custom_constants/separation = 42
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 347.0
+margin_bottom = 141.0
+size_flags_horizontal = 3
+custom_constants/separation = 28
+
+[node name="SearchOptions" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 347.0
+margin_bottom = 70.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SearchOptions"]
+margin_right = 347.0
+margin_bottom = 14.0
+text = "Search:"
+
+[node name="SearchLine" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SearchOptions"]
+margin_top = 18.0
+margin_right = 347.0
+margin_bottom = 42.0
+hint_tooltip = "String to search for in the loaded scene name.
+
+NOTE: 
+- This should be a regex pattern if 'Use Regex Search' is checked. 
+- Replace will be applied to ALL instances of matched strings. 
+- Backslashes ('\\') are automatically escaped."
+
+[node name="UseRegex" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SearchOptions"]
+margin_top = 46.0
+margin_right = 347.0
+margin_bottom = 70.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SearchOptions/UseRegex"]
+margin_top = 5.0
+margin_right = 117.0
+margin_bottom = 19.0
+text = "Use Regex Search:"
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SearchOptions/UseRegex"]
+margin_left = 121.0
+margin_right = 145.0
+margin_bottom = 24.0
+
+[node name="PrefixOptions" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 98.0
+margin_right = 347.0
+margin_bottom = 140.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/PrefixOptions"]
+margin_right = 347.0
+margin_bottom = 14.0
+text = "Prefix:"
+
+[node name="PrefixLine" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/PrefixOptions"]
+margin_top = 18.0
+margin_right = 347.0
+margin_bottom = 42.0
+hint_tooltip = "The prefix string to append to the BEGINNING of the saved resource name."
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 389.0
+margin_right = 736.0
+margin_bottom = 141.0
+size_flags_horizontal = 3
+custom_constants/separation = 57
+
+[node name="ReplaceOptions" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_right = 347.0
+margin_bottom = 42.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ReplaceOptions"]
+margin_right = 347.0
+margin_bottom = 14.0
+text = "Replace:"
+
+[node name="ReplaceLine" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ReplaceOptions"]
+margin_top = 18.0
+margin_right = 347.0
+margin_bottom = 42.0
+hint_tooltip = "The string to replace the text found by the 'Search' string.
+Leaving this blank when defining the 'Search' will delete the searched string if found."
+
+[node name="SuffixOptions" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 99.0
+margin_right = 347.0
+margin_bottom = 141.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SuffixOptions"]
+margin_right = 347.0
+margin_bottom = 14.0
+text = "Suffix:"
+
+[node name="SuffixLine" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SuffixOptions"]
+margin_top = 18.0
+margin_right = 347.0
+margin_bottom = 42.0
+hint_tooltip = "The suffix  string to append to the END of the saved resource name."
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer"]
+margin_top = 171.0
+margin_right = 736.0
+margin_bottom = 191.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_top = 195.0
+margin_right = 736.0
+margin_bottom = 209.0
+text = "Save Location"
+align = 1
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+margin_top = 213.0
+margin_right = 736.0
+margin_bottom = 217.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 221.0
+margin_right = 736.0
+margin_bottom = 245.0
+
+[node name="SelectFolder" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_right = 95.0
+margin_bottom = 24.0
+text = "Select Folder"
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 99.0
+margin_right = 109.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="FolderLine" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 113.0
+margin_right = 630.0
+margin_bottom = 24.0
+hint_tooltip = "The directory to save modified resources to. Leaving this blank will save the resources in their original directories."
+size_flags_horizontal = 3
+editable = false
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 634.0
+margin_right = 644.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="Clear" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 648.0
+margin_right = 736.0
+margin_bottom = 24.0
+text = "Clear Folder"
+
+[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer"]
+margin_top = 249.0
+margin_right = 736.0
+margin_bottom = 378.0
+size_flags_vertical = 3
+
+[node name="ErrorLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+visible = false
+margin_top = 364.0
+margin_right = 736.0
+margin_bottom = 378.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "ERROR: Invalid thing!"
+align = 1
+
+[node name="ResetOptions" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 382.0
+margin_right = 736.0
+margin_bottom = 402.0
+text = "Reset Options"
+
+[node name="Buttons" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 406.0
+margin_right = 736.0
+margin_bottom = 426.0
+alignment = 1
+
+[node name="Cancel" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
+margin_right = 366.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Cancel"
+
+[node name="Accept" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
+margin_left = 370.0
+margin_right = 736.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Accept"
