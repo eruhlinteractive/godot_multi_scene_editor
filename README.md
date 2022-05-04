@@ -17,6 +17,9 @@ With this plugin you can make the same edits to multiple scenes with a few click
 ## Installation 
 This plugin functions like other standard Godot editor plugins. Copy the contents of the `multi_scene_editor` folder into the `res://addons` folder in your project and enable the plugin via the project settings.
 
+## Documentation
+*- WIP -*
+
 ## Godot 4.0?
 Although not currently tested, I plan on updating this plugin to work with Godot 4.x when a stable version is released.
 
