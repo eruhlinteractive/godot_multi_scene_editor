@@ -1,7 +1,7 @@
 # Godot Multi-Scene Editor Plugin
 A Batch Scene Editor Plugin for Godot for Godot 3.x
 
-### Tired of manually applying the same edits to scenes one-by-one? This plugin is for **YOU!**
+### Tired of manually applying the same edits to scenes one-by-one? Then this plugin is for **YOU!**
 
 ![image](https://user-images.githubusercontent.com/45072333/166684214-c39066db-1637-43c7-b2db-02cd34df4a4f.png)
 
