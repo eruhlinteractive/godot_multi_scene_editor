@@ -1,2 +1,2 @@
-# godot_multi_scene_editor
+# Godot Multi-Scene Editor Plugin
 A Batch Scene Editor Plugin for Godot
